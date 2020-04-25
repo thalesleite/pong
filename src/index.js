@@ -20,9 +20,7 @@ function preload() {
 function create() {
     this.add.image(780, 300, 'paddleOne');
     this.add.image(20, 300, 'paddleTwo');
-
     this.add.image(400, 300, 'net');
-
     this.add.image(35, 300, 'ball');
 }
 
