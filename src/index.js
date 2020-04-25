@@ -1,4 +1,5 @@
 import Paddle from './Paddle.js';
+import Ball from './Ball.js';
 
 const config = {
     type: Phaser.AUTO,
@@ -13,7 +14,8 @@ const config = {
 }
 
 let playerOne,
-    playerTwo;
+    playerTwo,
+    ball;
 
 function preload() {
     this.load.image('paddle', '../assets/paddle.png');
@@ -27,7 +29,7 @@ function create() {
     
     this.add.image(400, 300, 'net');
 
-    this.add.image(35, 300, 'ball');
+    ball = new Ball(this, 35, 300);
 }
 
 function update() {
