@@ -22,7 +22,8 @@ const config = {
 let playerOne,
     playerTwo,
     ball,
-    cursors;
+    cursorOne,
+    cursorTwo;
 
 function preload() {
     this.load.image('paddle', '../assets/paddle.png');
@@ -38,24 +39,29 @@ function create() {
 
     ball = new Ball(this, 35, 300);
 
-    cursors = this.input.keyboard.createCursorKeys();
+    cursorOne = this.input.keyboard.createCursorKeys();
+    cursorTwo = this.input.keyboard.createCursorKeys();
 }
 
 function update() {
-    if (cursors.up.isDown) {
+    cursorOne = this.input.keyboard.addKeys({
+        up:Phaser.Input.Keyboard.KeyCodes.W,
+        down:Phaser.Input.Keyboard.KeyCodes.S
+    });
+
+    if (cursorOne.up.isDown) {
         playerOne.body.position.y += -10;
 
-    } else if (cursors.down.isDown) {
+    } else if (cursorOne.down.isDown) {
         playerOne.body.position.y += 10;
 
-    } 
-    // else if (cursors.down.isDown) {
-    //     playerOne.body.position.y += 10;
+    } else if (cursorTwo.up.isDown) {
+        playerTwo.body.position.y += -10;
 
-    // } else if (cursors.down.isDown) {
-    //     playerOne.body.position.y += 10;
+    } else if (cursorTwo.down.isDown) {
+        playerTwo.body.position.y += 10;
 
-    // }
+    }
 }
 
 const game = new Phaser.Game(config);
