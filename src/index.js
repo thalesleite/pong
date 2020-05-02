@@ -19,11 +19,11 @@ const config = {
     }
 }
 
-let playerOne,
-    playerTwo,
+let player1,
+    player2,
     ball,
-    cursorOne,
-    cursorTwo;
+    cursor1,
+    cursor2;
 
 function preload() {
     this.load.image('paddle', '../assets/paddle.png');
@@ -32,34 +32,34 @@ function preload() {
 }
 
 function create() {
-    playerOne = new Paddle(this, 20, 300);
-    playerTwo = new Paddle(this, 780, 300);
+    player1 = new Paddle(this, 20, 300);
+    player2 = new Paddle(this, 780, 300);
     
     this.add.image(400, 300, 'net');
 
     ball = new Ball(this, 35, 300);
 
-    cursorOne = this.input.keyboard.createCursorKeys();
-    cursorTwo = this.input.keyboard.createCursorKeys();
+    cursor1 = this.input.keyboard.createCursorKeys();
+    cursor2 = this.input.keyboard.createCursorKeys();
 }
 
 function update() {
-    cursorOne = this.input.keyboard.addKeys({
+    cursor1 = this.input.keyboard.addKeys({
         up:Phaser.Input.Keyboard.KeyCodes.W,
         down:Phaser.Input.Keyboard.KeyCodes.S
     });
 
-    if (cursorOne.up.isDown) {
-        playerOne.body.position.y += -10;
+    if (cursor1.up.isDown) {
+        player1.body.position.y += -10;
 
-    } else if (cursorOne.down.isDown) {
-        playerOne.body.position.y += 10;
+    } else if (cursor1.down.isDown) {
+        player1.body.position.y += 10;
 
-    } else if (cursorTwo.up.isDown) {
-        playerTwo.body.position.y += -10;
+    } else if (cursor2.up.isDown) {
+        player2.body.position.y += -10;
 
-    } else if (cursorTwo.down.isDown) {
-        playerTwo.body.position.y += 10;
+    } else if (cursor2.down.isDown) {
+        player2.body.position.y += 10;
 
     }
 }
