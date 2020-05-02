@@ -8,7 +8,10 @@ const Paddle = new Phaser.Class({
         this.setTexture('paddle');
         this.setPosition(x, y);
         
-        scene.children.add(this);
+        // scene.children.add(this);
+        // scene.physics.world.enableBody(this);
+        scene.physics.world.enable(this);
+        scene.add.existing(this);
     }
 });
 
